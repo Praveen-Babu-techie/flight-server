@@ -38,8 +38,6 @@ function startTimer(duration) {
                 console.log(body);
             });
 
-
-
         }
 
         if (--timer < 0) {
@@ -52,21 +50,15 @@ function startTimer(duration) {
         }
     }, 1000);
 
-
-
 }
 
 startTimer(timer);
-
 
 app.use(cors());
 app.get('/', (req, res) => {
 
     res.send(time);
 });
-
-
-
 
 app.listen(4000, () => {
     console.log('product server listening to port ')
