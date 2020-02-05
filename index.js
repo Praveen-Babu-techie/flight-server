@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 var request = require("request");
 const app = express();
-
+const port = process.env.PORT || 3000;
 var time, timer = 300;
 function startTimer(duration) {
     var timer = duration, minutes, seconds;
@@ -13,7 +13,7 @@ function startTimer(duration) {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
         time = minutes + "M " + seconds + "S";
-        console.log(time);
+
         if (minutes === '00' && seconds === '00') {
             time = 'Board Now';
         }
@@ -60,8 +60,8 @@ app.get('/', (req, res) => {
     res.send(time);
 });
 
-app.listen(4000, () => {
-    console.log('product server listening to port ')
+app.listen(port, () => {
+    console.log('product server listening to port ',port)
 });
 
 
